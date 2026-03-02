@@ -5,8 +5,9 @@ This repository serves as a branch predictor softcore testing framework. It cont
 
 * [Repository Structure](#-repository-structure)
 * [Baseline](#-baseline)
+* [Predictor Versions](#-predictor-versions)
 * [Usage](#-usage)
-* [Prerequisites](#-prerequisites)
+* [Prerequisites](#-Prerequisites)
 * [Installation](#-installation)
 
 ## 📂 Repository Structure
@@ -33,7 +34,21 @@ To test the performance of the different branch predictors, a baseline risc-v co
 * Branch Prediction Unit is connected to IF stage for prediction and update happens in MEM stage
 * All big memory elements like memories, btb tables etc are modelled using BRAM
 
-```
+---
+
+## ⚡ Predictor Versions
+
+- [Always Not Taken](branch_predictor_versions/rv32im_not_taken/riscv_soc_top.sv)  
+  This is the baseline version, because having no predictor and no target buffer is essentially same as branches always not taken.
+
+- [Always Taken](branch_predictor_versions/rv32im_always_taken_2xn/riscv_soc_top.sv)  
+  This version has a 2-way set assosiative branch target buffer with Least Recently Used (LRU) replacement policy. It is used to store targets for previously seen jump/branch instruction and for next occourance it uses stored addresses and always jumps. For jump/branch instructions seen for the first time, they are not taken.
+
+- [Alternating](branch_predictor_versions/rv32im_alternating_2xn/riscv_soc_top.sv)  
+  This version has a 2-way set assosiative branch target buffer with Least Recently Used (LRU) replacement policy. It is used to store targets for previously seen jump/branch instruction and also stores last action it takes and alternates the action next time so if last time a specific branch instruction was taken, this time it is not taken.
+
+---
+
 
 ## 🔄 Usage
 Copy the required version of the code from the branch_predictor_versions folder into the root directory of this repository and rename it to rtl.
@@ -46,7 +61,9 @@ make dhrystone
 make coremark
 ```
 
-## 🛠️ Prerequisites
+---
+
+## 💻 Prerequisites
 
 * Linux / WSL
 * **RISC-V GNU Toolchain** (Tested: `riscv32-unknown-elf-gcc 15.2.0`)
@@ -58,7 +75,7 @@ make coremark
 
 ## 📦 Installation
 
-### 1️⃣ RISC-V GNU Toolchain (RV32I)
+### 1️⃣ RISC-V GNU Toolchain
 
 ```bash
 git clone https://github.com/riscv/riscv-gnu-toolchain
