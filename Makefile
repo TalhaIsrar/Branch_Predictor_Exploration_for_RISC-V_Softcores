@@ -22,7 +22,7 @@ all:
 	@echo "  make dhrystone"
 	@echo "  make coremark"
 
-.PHONY: custom riscv-tests dhrystone coremark multest
+.PHONY: custom riscv-tests dhrystone wikisort coremark multest slre
 custom: del
 	@echo "---------------- Starting Custom C tests ----------------"
 	$(MAKE) -C custom_c_test
@@ -31,6 +31,16 @@ custom: del
 riscv-tests: del
 	@echo "---------------- Starting riscv-tests ----------------"
 	$(MAKE) -C riscv-tests
+	$(MAKE) convert_mem
+
+wikisort: del
+	@echo "---------------- Starting Benchmarks ----------------"
+	$(MAKE) -C wikisort
+	$(MAKE) convert_mem
+
+slre: del
+	@echo "---------------- Starting Benchmarks ----------------"
+	$(MAKE) -C slre
 	$(MAKE) convert_mem
 
 dhrystone: del

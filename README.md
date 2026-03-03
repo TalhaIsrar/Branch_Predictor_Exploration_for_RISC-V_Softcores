@@ -13,15 +13,15 @@ This repository serves as a branch predictor softcore testing framework. It cont
 ## 📂 Repository Structure
 
 ```
-branch_predictor_versions/  Different branch predictors with a RV32IM core
-custom_c_test/              Test custom programs on the core
+branch_predictor_softcore_versions/     Different branch predictors with a RV32IM core
+custom_c_test/                          Test custom programs on the core
 riscv-tests/          
 dhrystone/          
 coremark/          
-rtl/                        RTL code for RISC-V Core to test
+rtl/                                    RTL code for RISC-V Core to test
 Makefile
-test.py                     Cocotb test file
-README.md                   This file
+test.py                                 Cocotb test file
+README.md                               This file
 ```
 
 ## 📊 Baseline
@@ -38,17 +38,16 @@ To test the performance of the different branch predictors, a baseline risc-v co
 
 ## ⚡ Predictor Versions
 
-- [Always Not Taken](branch_predictor_versions/rv32im_not_taken/riscv_soc_top.sv)  
+- [Always Not Taken](branch_predictor_softcore_versions/rv32im_not_taken/riscv_soc_top.sv)  
   This is the baseline version, because having no predictor and no target buffer is essentially same as branches always not taken.
 
-- [Always Taken](branch_predictor_versions/rv32im_always_taken_2xn/riscv_soc_top.sv)  
+- [Always Taken](branch_predictor_softcore_versions/rv32im_always_taken_2xn/riscv_soc_top.sv)  
   This version has a 2-way set assosiative branch target buffer with Least Recently Used (LRU) replacement policy. It is used to store targets for previously seen jump/branch instruction and for next occourance it uses stored addresses and always jumps. For jump/branch instructions seen for the first time, they are not taken.
 
-- [Alternating](branch_predictor_versions/rv32im_alternating_2xn/riscv_soc_top.sv)  
+- [Alternating](branch_predictor_softcore_versions/rv32im_alternating_2xn/riscv_soc_top.sv)  
   This version has a 2-way set assosiative branch target buffer with Least Recently Used (LRU) replacement policy. It is used to store targets for previously seen jump/branch instruction and also stores last action it takes and alternates the action next time so if last time a specific branch instruction was taken, this time it is not taken.
 
 ---
-
 
 ## 🔄 Usage
 Copy the required version of the code from the branch_predictor_versions folder into the root directory of this repository and rename it to rtl.
