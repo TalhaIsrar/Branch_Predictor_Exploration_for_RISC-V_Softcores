@@ -77,8 +77,8 @@ picojpeg:
 	$(MAKE) embench BENCH=picojpeg
 primecount:
 	$(MAKE) embench BENCH=primecount
-qrdunio:
-	$(MAKE) embench BENCH=qrdunio
+qrduino:
+	$(MAKE) embench BENCH=qrduino
 sglib-combined:
 	$(MAKE) embench BENCH=sglib-combined
 slre:
@@ -96,7 +96,7 @@ wikisort:
 
 EMBENCH_LIST := \
 	aha-mont64 crc32 cubic edn huffbench matmult-int md5sum minver \
-	nbody nettle-aes nettle-sha256 nsichneu picojpeg primecount qrdunio \
+	nbody nettle-aes nettle-sha256 nsichneu picojpeg primecount qrduino \
 	sglib-combined slre st statemate tarfind ud wikisort
 
 OTHER_BENCH := coremark dhrystone
