@@ -25,8 +25,7 @@ module mem_stage(
     output logic jump_inst,
 
     output logic [31:0] read_data,
-    output logic [31:0] calculated_result,
-    output logic taken
+    output logic [31:0] calculated_result
 );
 
     // Byte offset from address
@@ -68,8 +67,7 @@ module mem_stage(
         .btb_update_target(btb_update_target),
         .modify_pc(jump_en),
         .btb_update(btb_update),
-        .jump_inst(jump_inst),
-        .taken(taken)
+        .jump_inst(jump_inst)
     );
 
     // Combinational block to convert store type and byte offset to byte enables

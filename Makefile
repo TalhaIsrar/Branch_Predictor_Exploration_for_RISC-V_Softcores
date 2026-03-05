@@ -9,7 +9,7 @@ VERILOG_INCLUDE := $(shell find $(PWD)/rtl -type d)
 INC_DIRS := $(foreach dir,$(VERILOG_INCLUDE),+incdir+$(dir))
 
 # EXTRA_ARGS += --trace --trace-structs --trace-fst --timing -j 8 $(INC_DIRS) # Use for debugging to generate wavefile
-EXTRA_ARGS += -j 8  $(INC_DIRS)# Use this for faster simulation
+EXTRA_ARGS += -j 40  $(INC_DIRS)# Use this for faster simulation
 
 # Connects cocotb test.py -> TB in verilog
 TOPLEVEL = riscv_tb
@@ -22,7 +22,7 @@ all:
 	@echo "  make dhrystone"
 	@echo "  make coremark"
 
-.PHONY: custom riscv-tests dhrystone wikisort coremark multest slre
+.PHONY: custom riscv-tests dhrystone coremark
 custom: del
 	@echo "---------------- Starting Custom C tests ----------------"
 	$(MAKE) -C custom_c_test
@@ -31,16 +31,6 @@ custom: del
 riscv-tests: del
 	@echo "---------------- Starting riscv-tests ----------------"
 	$(MAKE) -C riscv-tests
-	$(MAKE) convert_mem
-
-wikisort: del
-	@echo "---------------- Starting Benchmarks ----------------"
-	$(MAKE) -C wikisort
-	$(MAKE) convert_mem
-
-slre: del
-	@echo "---------------- Starting Benchmarks ----------------"
-	$(MAKE) -C slre
 	$(MAKE) convert_mem
 
 dhrystone: del
@@ -52,11 +42,64 @@ coremark: del
 	@echo "---------------- Starting Coremark Benchmark ----------------"
 	$(MAKE) -C coremark
 	$(MAKE) convert_mem
-	
-multest: del
-	@echo "---------------- Starting multest ----------------"
-	$(MAKE) -C multest
+
+.PHONY: embench
+embench: del
+	@echo "---------------- Starting EMbench: $(BENCH) ----------------"
+	$(MAKE) -C embench BENCH=$(BENCH)
 	$(MAKE) convert_mem
+
+aha-mont64:
+	$(MAKE) embench BENCH=aha-mont64
+crc32:
+	$(MAKE) embench BENCH=crc32
+cubic:
+	$(MAKE) embench BENCH=cubic
+edn:
+	$(MAKE) embench BENCH=edn	
+huffbench:
+	$(MAKE) embench BENCH=huffbench
+matmult-int:
+	$(MAKE) embench BENCH=matmult-int
+md5sum:
+	$(MAKE) embench BENCH=md5sum
+minver:
+	$(MAKE) embench BENCH=minver
+nbody:
+	$(MAKE) embench BENCH=nbody
+nettle-aes:
+	$(MAKE) embench BENCH=nettle-aes
+nettle-sha256:
+	$(MAKE) embench BENCH=nettle-sha256
+nsichneu:
+	$(MAKE) embench BENCH=nsichneu
+picojpeg:
+	$(MAKE) embench BENCH=picojpeg
+primecount:
+	$(MAKE) embench BENCH=primecount
+qrdunio:
+	$(MAKE) embench BENCH=qrdunio
+sglib-combined:
+	$(MAKE) embench BENCH=sglib-combined
+slre:
+	$(MAKE) embench BENCH=slre
+st:
+	$(MAKE) embench BENCH=st
+statemate:
+	$(MAKE) embench BENCH=statemate
+tarfind:
+	$(MAKE) embench BENCH=tarfind
+ud:
+	$(MAKE) embench BENCH=ud
+wikisort:
+	$(MAKE) embench BENCH=wikisort
+
+EMBENCH_LIST := \
+	aha-mont64 crc32 cubic edn huffbench matmult-int md5sum minver \
+	nbody nettle-aes nettle-sha256 nsichneu picojpeg primecount qrdunio \
+	sglib-combined slre st statemate tarfind ud wikisort
+
+OTHER_BENCH := coremark dhrystone
 
 # Convert .elf files to mem files
 convert_mem: code.mem data.mem simulation
@@ -97,3 +140,22 @@ del:
 	-rm -rf *.o *.mem *.bin *.elf *dump* *.xml sim_build
 
 .DEFAULT_GOAL := all
+
+.PHONY: run_all
+
+run_all:
+	@echo "===== Running ALL Benchmarks =====" > results_log.txt
+	@echo "" >> results_log.txt
+
+	@for bench in $(EMBENCH_LIST); do \
+		echo "===== $$bench =====" | tee -a results_log.txt; \
+		$(MAKE) $$bench | tee -a results_log.txt; \
+		echo "" >> results_log.txt; \
+	done
+
+	@for bench in $(OTHER_BENCH); do \
+		echo "===== $$bench =====" | tee -a results_log.txt; \
+		$(MAKE) $$bench | tee -a results_log.txt; \
+		echo "" >> results_log.txt; \
+	done
+	@echo "===== ALL DONE =====" | tee -a results_log.txt

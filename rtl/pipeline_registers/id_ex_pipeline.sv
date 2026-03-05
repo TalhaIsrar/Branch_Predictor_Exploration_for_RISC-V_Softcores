@@ -1,7 +1,4 @@
-module id_ex_pipeline #(
-    parameter N_TABLES = 2,
-    parameter GHR_SIZE = 128
-)(
+module id_ex_pipeline(
     input logic clk,
     input logic rst,
     input logic pipeline_flush,
@@ -27,12 +24,6 @@ module id_ex_pipeline #(
     input logic [8:0] id_decoded_instruction,
     input logic id_m_type_inst,
 
-    input logic [N_TABLES-1:0] tag_hits_id,
-    input logic [N_TABLES-1:0] u_bits_id,
-    input logic [$clog2(N_TABLES)-1:0] provider_table_id,
-    input logic [$clog2(N_TABLES)-1:0] alloc_table_id,
-    input logic [GHR_SIZE-1:0] ghr_id,
-
     output logic ex_forward_pipeline_flush,
     output logic [31:0] ex_instruction,
     output logic [31:0] ex_pc,
@@ -52,13 +43,7 @@ module id_ex_pipeline #(
     output logic [31:0] ex_predicted_pc,
     output logic ex_pred_valid,
     output logic [8:0] ex_decoded_instruction,
-    output logic ex_m_type_inst,
-
-    output logic [N_TABLES-1:0] tag_hits_ex,
-    output logic [N_TABLES-1:0] u_bits_ex,
-    output logic [$clog2(N_TABLES)-1:0] provider_table_ex,
-    output logic [$clog2(N_TABLES)-1:0] alloc_table_ex,
-    output logic [GHR_SIZE-1:0] ghr_ex 
+    output logic ex_m_type_inst
 );
 
     always_ff @(posedge clk, posedge rst) begin
@@ -125,28 +110,6 @@ module id_ex_pipeline #(
             ex_pred_valid <= id_pred_valid;
             ex_decoded_instruction <= id_decoded_instruction;
             ex_m_type_inst <= id_m_type_inst;
-        end
-    end
-
-    always_ff @(posedge clk, posedge rst) begin
-        if (rst) begin
-            tag_hits_ex <= 0;
-            u_bits_ex <= 0;
-            provider_table_ex <= 0;
-            alloc_table_ex <= 0;
-            ghr_ex <= 0;
-        end else if (pipeline_flush) begin
-            tag_hits_ex <= 0;
-            u_bits_ex <= 0;
-            provider_table_ex <= 0;
-            alloc_table_ex <= 0;
-            ghr_ex <= 0;
-        end else if (pipeline_en) begin
-            tag_hits_ex <= tag_hits_id;
-            u_bits_ex <= u_bits_id;
-            provider_table_ex <= provider_table_id;
-            alloc_table_ex <= alloc_table_id;
-            ghr_ex <= ghr_id;
         end
     end
 

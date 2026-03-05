@@ -108,30 +108,6 @@ module riscv_soc_top(
     logic        wb_reg_file;
     logic        wb_load;
 
-    logic taken;
-    parameter N_TABLES   = 7;
-    parameter GHR_SIZE   = 512;
-    parameter BTB_SIZE   = 2048;
-    parameter BIMODAL_IDX = 12;
-    parameter int TAGE_HIST_LEN [N_TABLES] = '{4, 8, 16, 32, 64, 128, 256};
-    parameter int TAGE_IDX_SIZE [N_TABLES] = '{12, 12, 11, 11, 10, 10, 9};
-    parameter int TAGE_TAG_SIZE [N_TABLES] = '{8, 8, 9, 9, 10, 10, 12};
-
-    parameter SC_N_TABLES = 4;
-    parameter SC_CTR_SIZE = 6;
-    parameter int SC_HIST_LEN [SC_N_TABLES] = '{0, 4, 10, 16};
-    parameter int SC_IDX_SIZE [SC_N_TABLES] = '{9, 9, 9, 9};
-    parameter int SC_THRES_INIT = 64;
-
-    //localparam int MAX_IDX = 12; <- TAGE_IDX_SIZE should be less than this. If more is needed change this in tage.sv
-    //localparam int MAX_TAG = 12; <- TAGE_TAG_SIZE should be less than this. If more is needed change this in tage.sv
-
-    logic [N_TABLES-1:0] tag_hits_if, tag_hits_id, tag_hits_ex, tag_hits_mem;
-    logic [N_TABLES-1:0] u_bits_if, u_bits_id, u_bits_ex, u_bits_mem;
-    logic [$clog2(N_TABLES)-1:0] provider_table_if, provider_table_id, provider_table_ex, provider_table_mem;
-    logic [$clog2(N_TABLES)-1:0] alloc_table_if, alloc_table_id, alloc_table_ex, alloc_table_mem;
-    logic [GHR_SIZE-1:0] ghr_if, ghr_id, ghr_ex, ghr_mem;
-
     // Instantiate the Fetch stage module
     fetch_stage fetch_stage_inst (
         .clk(clk),
@@ -148,52 +124,25 @@ module riscv_soc_top(
         .next_pc(btb_next_pc)
     );
 
-    bpu_top #(
-        .N_TABLES(N_TABLES),
-        .GHR_SIZE(GHR_SIZE),
-        .BTB_SIZE(BTB_SIZE),
-        .BIMODAL_IDX(BIMODAL_IDX),
-        .TAGE_HIST_LEN(TAGE_HIST_LEN),
-        .TAGE_IDX_SIZE(TAGE_IDX_SIZE),
-        .TAGE_TAG_SIZE(TAGE_TAG_SIZE),
-        .SC_N_TABLES(SC_N_TABLES),
-        .SC_CTR_SIZE(SC_CTR_SIZE),
-        .SC_HIST_LEN(SC_HIST_LEN),
-        .SC_IDX_SIZE(SC_IDX_SIZE),
-        .SC_THRES_INIT(SC_THRES_INIT)
-    ) bpu_inst(
+    // Instantiate the Branch Target Buffer module
+    btb btb_inst (
         .clk(clk),
         .rst(rst),
-        .if_pc(if_pc),
-        .next_if_pc(btb_next_pc),
-        .update_i(btb_update),
-        .ex_update_pc(ex_pc),
-        .mem_update_pc(mem_pc),
-        .update_target(btb_update_target),
-        .update_taken(taken),
-        .update_uncond_inst(btb_jump_inst),
-        .misprediction(ex_if_jump_en),
+        .pc(if_pc),
+        .next_pc(btb_next_pc),
+        .next_update_pc(ex_pc),
+        .update_pc(mem_pc),
+        .update(btb_update), // Replace btb_update by 1'b0 to disconnect BTB
+        .update_target(btb_update_target), // Replace btb_update_target by 1'b0 to disconnect BTB
+        .mispredicted(ex_if_jump_en),
+        .btb_jump_inst(btb_jump_inst),
         .target_pc(btb_target_pc),
-        .target_valid(btb_pc_valid),
-        .pred_taken(btb_pc_predictTaken),
-        .tag_hits_in(tag_hits_mem),
-        .u_bits_in(u_bits_mem),
-        .provider_table_in(provider_table_mem),
-        .alloc_table_in(alloc_table_mem),
-        .ghr_ex(ghr_ex),
-        .ghr_mem(ghr_mem),
-        .tag_hits_out(tag_hits_if),
-        .u_bits_out(u_bits_if),
-        .provider_table_out(provider_table_if),
-        .alloc_table_out(alloc_table_if),
-        .ghr_out(ghr_if)
+        .valid(btb_pc_valid),
+        .predictedTaken(btb_pc_predictTaken)
     );
 
     // Instantiate the IF/ID pipeline module
-    if_id_pipeline #(
-        .N_TABLES(N_TABLES),
-        .GHR_SIZE(GHR_SIZE)
-    )  if_id_pipeline_inst (
+    if_id_pipeline if_id_pipeline_inst (
         .clk(clk),
         .rst(rst),
         .pipeline_flush(if_id_pipeline_flush),
@@ -204,25 +153,12 @@ module riscv_soc_top(
         .if_instruction(if_instruction),
         .if_pred_taken(btb_pc_predictTaken),
         .if_pred_valid(btb_pc_valid),
-
-        .tag_hits_if(tag_hits_if),
-        .u_bits_if(u_bits_if),
-        .provider_table_if(provider_table_if),
-        .alloc_table_if(alloc_table_if),
-        .ghr_if(ghr_if),
-
         .id_flush(id_flush),
         .id_pc(id_pc),
         .id_instruction(id_instruction),
         .id_predicted_pc(id_predicted_pc),
         .id_pred_taken(id_pred_taken),
-        .id_pred_valid(id_pred_valid),
-
-        .tag_hits_id(tag_hits_id),
-        .u_bits_id(u_bits_id),
-        .provider_table_id(provider_table_id),
-        .alloc_table_id(alloc_table_id),
-        .ghr_id(ghr_id)
+        .id_pred_valid(id_pred_valid)
     );
 
     // Instantiate the Decode stage module
@@ -252,10 +188,7 @@ module riscv_soc_top(
     );
 
     // Instantiate the ID/EX pipeline module
-    id_ex_pipeline #(
-        .N_TABLES(N_TABLES),
-        .GHR_SIZE(GHR_SIZE)
-    )   id_ex_pipeline_inst (
+    id_ex_pipeline id_ex_pipeline_inst (
         .clk(clk),
         .rst(rst),
         .pipeline_flush(id_ex_pipeline_flush),
@@ -279,11 +212,6 @@ module riscv_soc_top(
         .id_pred_valid(id_pred_valid),
         .id_decoded_instruction(id_decoded_instruction),
         .id_m_type_inst(m_type_inst),
-        .tag_hits_id(tag_hits_id),
-        .u_bits_id(u_bits_id),
-        .provider_table_id(provider_table_id),
-        .alloc_table_id(alloc_table_id),
-        .ghr_id(ghr_id),
 
         .ex_forward_pipeline_flush(ex_forward_pipeline_flush),
         .ex_instruction(m_unit_instruction),
@@ -304,12 +232,7 @@ module riscv_soc_top(
         .ex_predicted_pc(ex_predicted_pc),
         .ex_pred_valid(ex_pred_valid),
         .ex_decoded_instruction(ex_decoded_instruction),
-        .ex_m_type_inst(m_unit_invalid_inst),
-        .tag_hits_ex(tag_hits_ex),
-        .u_bits_ex(u_bits_ex),
-        .provider_table_ex(provider_table_ex),
-        .alloc_table_ex(alloc_table_ex),
-        .ghr_ex(ghr_ex)
+        .ex_m_type_inst(m_unit_invalid_inst)
     );
 
     // Instantiate the Forwading Unit module
@@ -393,10 +316,7 @@ module riscv_soc_top(
     );
 
     // Instantiate the EX/MEM pipeline module
-    ex_mem_pipeline #(
-        .N_TABLES(N_TABLES),
-        .GHR_SIZE(GHR_SIZE)
-    )   ex_mem_pipeline_inst (
+    ex_mem_pipeline ex_mem_pipeline_inst (
         .clk(clk),
         .rst(rst),
         .pipeline_flush(ex_mem_pipeline_flush),
@@ -417,11 +337,6 @@ module riscv_soc_top(
         .ex_predictedTaken(ex_pred_taken),
         .ex_decoded_instruction(ex_decoded_instruction),
         .ex_op1_selected(op1_selected),
-        .tag_hits_ex(tag_hits_ex),
-        .u_bits_ex(u_bits_ex),
-        .provider_table_ex(provider_table_ex),
-        .alloc_table_ex(alloc_table_ex),
-        .ghr_ex(ghr_ex),
 
         .mem_result(mem_result),
         .mem_op2_selected(mem_op2_selected),
@@ -438,12 +353,7 @@ module riscv_soc_top(
         .mem_alu_flags(mem_alu_flags),
         .mem_predictedTaken(mem_predictedTaken),
         .mem_decoded_instruction(mem_decoded_instruction),
-        .mem_op1_selected(mem_op1_selected),
-        .tag_hits_mem(tag_hits_mem),
-        .u_bits_mem(u_bits_mem),
-        .provider_table_mem(provider_table_mem),
-        .alloc_table_mem(alloc_table_mem),
-        .ghr_mem(ghr_mem)
+        .mem_op1_selected(mem_op1_selected)
     );
 
     // Instantiate the Memory stage module
@@ -474,8 +384,7 @@ module riscv_soc_top(
         .jump_inst(btb_jump_inst),
 
         .read_data(mem_read_data),
-        .calculated_result(mem_calculated_result),
-        .taken(taken)
+        .calculated_result(mem_calculated_result)
     );
 
     // Instantiate the MEM/WB pipeline module
