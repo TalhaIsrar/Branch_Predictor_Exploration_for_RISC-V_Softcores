@@ -263,18 +263,18 @@ verify_benchmark (int tot_e_ok)
   if (tot_e_ok)
     for (i = 0; i < BODIES_SIZE; i++)
       {
-        for (j = 0; j < 3; j++)
-          {
-            if (double_neq_beebs(solar_bodies[i].x[j], expected[i].x[j]))
-              return 0;
-            if (double_neq_beebs(solar_bodies[i].v[j], expected[i].v[j]))
-              return 0;
-          }
-        if (double_neq_beebs(solar_bodies[i].mass, expected[i].mass))
-          return 0;
+	for (j = 0; j < 3; j++)
+	  {
+	    if (double_neq_beebs(solar_bodies[i].x[j], expected[i].x[j]))
+	      return 0;
+	    if (double_neq_beebs(solar_bodies[i].v[j], expected[i].v[j]))
+	      return 0;
+	  }
+	if (double_neq_beebs(solar_bodies[i].mass, expected[i].mass))
+	  return 0;
       }
-    else
-      return 0;
+  else
+    return 0;
 
   return 1;
 }

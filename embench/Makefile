@@ -21,6 +21,9 @@ core.elf:
 	-T link.ld \
 	-I. \
 	-DCPU_MHZ=$(CPU_MHZ) \
+	-fno-common \
+	-fno-builtin \
+	-fno-tree-vectorize \
 	start.s \
 	main.c \
 	beebsc.c \

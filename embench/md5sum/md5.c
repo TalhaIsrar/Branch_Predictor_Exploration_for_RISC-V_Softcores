@@ -7,6 +7,7 @@
  * modified by Julian Kunkel for Embench-iot
  * Compile with: gcc -o md5 -O3 -lm md5.c
  */
+// SPDX-License-Identifier: MIT
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,13 +18,14 @@
 #define LOCAL_SCALE_FACTOR 51
 
 /* BEEBS heap is just an array */
-#define HEAP_SIZE 2000
+/* MSG_SIZE * 2 + ((((MSG_SIZE+8)/64 + 1) * 64) - 8) + 64 */
+#define HEAP_SIZE (2000 + 1016 + 64)
 #define MSG_SIZE 1000
 /* Result obtained with a single run on the native target on x86 with a MSG_SIZE
  * of 1000 and a msg initiated incrementally from 0 to 999 as in benchmark_body.
  * If MSG_SIZE or the initialization mechanism of the array change the RESULT
  * value needs to be updated accordingly. */
-#define RESULT 0x27a20e0a // (redefined by Philippos on Ryzen) Original 0x30C0DA225
+#define RESULT 0x33f673b4
 
 static char heap[HEAP_SIZE];
 
@@ -82,7 +84,7 @@ void md5(uint8_t *initial_msg, size_t initial_len) {
 
     int new_len = ((((initial_len + 8) / 64) + 1) * 64) - 8;
 
-    msg = calloc(new_len + 64, 1); // also appends "0" bits
+    msg = calloc_beebs(new_len + 64, 1); // also appends "0" bits
                                    // (we alloc also 64 extra bytes...)
     memcpy(msg, initial_msg, initial_len);
     msg[initial_len] = 128; // write the "1" bit
@@ -172,7 +174,7 @@ void md5(uint8_t *initial_msg, size_t initial_len) {
     }
 
     // cleanup
-    free(msg);
+    free_beebs(msg);
 }
 
 
@@ -217,20 +219,22 @@ benchmark_body (int rpt, int len)
 
     uint8_t *p;
     // display result
+#ifdef DEBUG
     p=(uint8_t *)&h0;
-    //printf("%2.2x%2.2x%2.2x%2.2x", p[0], p[1], p[2], p[3]);
+    printf("%2.2x%2.2x%2.2x%2.2x", p[0], p[1], p[2], p[3]);
 
     p=(uint8_t *)&h1;
-    //printf("%2.2x%2.2x%2.2x%2.2x", p[0], p[1], p[2], p[3]);
+    printf("%2.2x%2.2x%2.2x%2.2x", p[0], p[1], p[2], p[3]);
 
     p=(uint8_t *)&h2;
-    //printf("%2.2x%2.2x%2.2x%2.2x", p[0], p[1], p[2], p[3]);
+    printf("%2.2x%2.2x%2.2x%2.2x", p[0], p[1], p[2], p[3]);
 
     p=(uint8_t *)&h3;
-    //printf("%2.2x%2.2x%2.2x%2.2x\n", p[0], p[1], p[2], p[3]);
+    printf("%2.2x%2.2x%2.2x%2.2x\n", p[0], p[1], p[2], p[3]);
+#endif
   }
 
-  return h0 + h1 + h2 + h3;
+  return h0 ^ h1 ^ h2 ^ h3;
 }
 
 
