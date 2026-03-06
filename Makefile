@@ -97,15 +97,10 @@ depthconv:
 	$(MAKE) embench BENCH=depthconv
 xgboost:
 	$(MAKE) embench BENCH=xgboost
-#EMBENCH_LIST := \
+EMBENCH_LIST := \
 	aha-mont64 crc32 cubic edn huffbench matmult-int md5sum minver \
 	nbody nettle-aes nettle-sha256 nsichneu picojpeg primecount qrduino \
 	sglib-combined slre st statemate tarfind ud wikisort depthconv xgboost
-
-EMBENCH_LIST := \
-	primecount qrduino \
-	sglib-combined slre st statemate tarfind ud wikisort depthconv xgboost
-
 
 OTHER_BENCH := coremark dhrystone
 

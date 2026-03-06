@@ -8,11 +8,9 @@ module dynamic_branch_predictor(
     // current state + mispredicted -> next_state
     always_comb begin
         case (current_state)
-            2'b00: next_state = mispredicted ? 2'b01  : 2'b00;
-            2'b01:   next_state = mispredicted ? 2'b10   : 2'b00;
-            2'b10:     next_state = mispredicted ? 2'b01  : 2'b11;
-            2'b11:       next_state = mispredicted ? 2'b10: 2'b11;
-            default:           next_state = current_state;
+            2'b00:          next_state = mispredicted ? 2'b11: 2'b00;
+            2'b11:          next_state = mispredicted ? 2'b00: 2'b11;
+            default:        next_state = 2'b00;
         endcase
     end
 
