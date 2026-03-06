@@ -93,11 +93,19 @@ ud:
 	$(MAKE) embench BENCH=ud
 wikisort:
 	$(MAKE) embench BENCH=wikisort
-
-EMBENCH_LIST := \
+depthconv:
+	$(MAKE) embench BENCH=depthconv
+xgboost:
+	$(MAKE) embench BENCH=xgboost
+#EMBENCH_LIST := \
 	aha-mont64 crc32 cubic edn huffbench matmult-int md5sum minver \
 	nbody nettle-aes nettle-sha256 nsichneu picojpeg primecount qrduino \
-	sglib-combined slre st statemate tarfind ud wikisort
+	sglib-combined slre st statemate tarfind ud wikisort depthconv xgboost
+
+EMBENCH_LIST := \
+	primecount qrduino \
+	sglib-combined slre st statemate tarfind ud wikisort depthconv xgboost
+
 
 OTHER_BENCH := coremark dhrystone
 
@@ -141,21 +149,13 @@ del:
 
 .DEFAULT_GOAL := all
 
-.PHONY: run_all
+.PHONY: embench_all
 
-run_all:
-	@echo "===== Running ALL Benchmarks =====" > results_log.txt
-	@echo "" >> results_log.txt
+embench_all:
 
 	@for bench in $(EMBENCH_LIST); do \
-		echo "===== $$bench =====" | tee -a results_log.txt; \
-		$(MAKE) $$bench | tee -a results_log.txt; \
-		echo "" >> results_log.txt; \
+		echo ""; \
+		echo "=============================================================== $$bench "===============================================================; \
+		echo ""; \
+		$(MAKE) $$bench; \
 	done
-
-	@for bench in $(OTHER_BENCH); do \
-		echo "===== $$bench =====" | tee -a results_log.txt; \
-		$(MAKE) $$bench | tee -a results_log.txt; \
-		echo "" >> results_log.txt; \
-	done
-	@echo "===== ALL DONE =====" | tee -a results_log.txt

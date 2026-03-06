@@ -58,25 +58,17 @@ mulul64 (uint64 u, uint64 v, uint64 * whi, uint64 * wlo)
 {
   uint64 u0, u1, v0, v1, k, t;
   uint64 w0, w1, w2;
-  
 
-//printf("%d u=0x%llx; v=0x%llx;  %d\n",0, u,v,/**whi,*wlo,*/0);
-//printf("%d *whi=0x%llx; *wlo=0x%llx; %d\n",0, *whi,*wlo, 0);
-
-  u1 = u >> 32;  //printf("%d %llx = %llx >> 32\n",0, u1, u);
-  u0 = u & 0xFFFFFFFF; //printf("%d %llx = %llx & 0xFFFFFFFF\n",0, u0, u);
-      
+  u1 = u >> 32;
+  u0 = u & 0xFFFFFFFF;
   v1 = v >> 32;
   v0 = v & 0xFFFFFFFF;
-  // printf("%d u1=0x%llx; u0=0x%llx; v0=%llx _*_=%llx %d\n",0, u1,u0,v0,u0*v0,/**whi,*wlo,*/0x5e169a0e0d99b0e9==u0*v0);
+
   t = u0 * v0;
   w0 = t & 0xFFFFFFFF;
   k = t >> 32;
-//printf("%d t=%llx %d\n",0,t,0);
-  t = u1 * v0 + k; 
-    
-  //printf("%d t=%llu\n",0,t);
-  //printf("%d %llu * %llu + %llu\n", 0,t, u1, v0, k);
+
+  t = u1 * v0 + k;
   w1 = t & 0xFFFFFFFF;
   w2 = t >> 32;
 
@@ -85,7 +77,7 @@ mulul64 (uint64 u, uint64 v, uint64 * whi, uint64 * wlo)
 
   *wlo = (t << 32) + w0;
   *whi = u1 * v1 + w2 + k;
-//printf("%d -> *whi=0x%llx; *wlo=0x%llx;  %d\n",0, *whi,*wlo,0);
+
   return;
 }
 #endif
@@ -102,7 +94,7 @@ modul64 (uint64 x, uint64 y, uint64 z)
      checked for. */
 
   int64 i, t;
-//printf("%d x=%llx y=%llx z=%llx %d\n",0, x, y, z,0);
+
   for (i = 1; i <= 64; i++)
     {				// Do 64 times.
       t = (int64) x >> 63;	// All 1's if x(63) = 1.
@@ -114,7 +106,6 @@ modul64 (uint64 x, uint64 y, uint64 z)
 	  y = y + 1;
 	}
     }
- // printf("%d x=%llx quot y=%llx %d\n",0,x,y,0);
   return x;			// Quotient is y.
 }
 
@@ -294,7 +285,7 @@ benchmark_body (int rpt)
          result of MM back to a normal number. The other calculated number,
          mprime, is used in the MM algorithm. */
 
-      xbinGCD (hr, m, &rinv, &mprime);	// xbinGCD, in effect, floats hr.
+      xbinGCD (hr, m, &rinv, &mprime);	// xbinGCD, in effect, doubles hr.
 
       /* Do a partial check of the results. It is partial because the
          multiplications here give only the low-order half (64 bits) of the
@@ -302,8 +293,7 @@ benchmark_body (int rpt)
 
       if (2 * hr * rinv - m * mprime != 1)
 	{
-	  errors = 1; 
-	  //printf("Error at iteration %d/%d : 2 * hr * rinv - m * mprime = %llu\n", i, rpt, 2 * hr * rinv - m * mprime );
+	  errors = 1;
 	}
 
       /* Compute abar = a*r(mod m) and bbar = b*r(mod m). That is, abar =
@@ -320,10 +310,8 @@ benchmark_body (int rpt)
 
       mulul64 (p, rinv, &phi, &plo);
       p = modul64 (phi, plo, m);
-      if (p != p1){
-		errors = 1;
-		//printf("Error at iteration %d/%d : %llu != %llu \n", i,rpt, p, p1);
-	  }
+      if (p != p1)
+	errors = 1;
     }
 
   return errors;

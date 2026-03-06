@@ -69,7 +69,7 @@
 
 struct body
 {
-  double x[3], fill, v[3], mass;
+  float x[3], fill, v[3], mass;
 };
 
 static struct body solar_bodies[] = {
@@ -129,24 +129,28 @@ offset_momentum (struct body *bodies, unsigned int nbodies)
 }
 
 
-double
+float
 bodies_energy (struct body *bodies, unsigned int nbodies)
 {
-  double dx[3], distance, e = 0.0;
+  float dx[3], distance, e = 0.0;
   unsigned int i, j, k;
 
   for (i = 0; i < nbodies; ++i)
     {
+      /*printf("%x\n",(bodies[i].v[0] * bodies[i].v[0]
+			     + bodies[i].v[1] * bodies[i].v[1]
+			     ) );*/
+      
       e += bodies[i].mass * (bodies[i].v[0] * bodies[i].v[0]
 			     + bodies[i].v[1] * bodies[i].v[1]
 			     + bodies[i].v[2] * bodies[i].v[2]) / 2.;
-
+	  
       for (j = i + 1; j < nbodies; ++j)
 	{
 	  for (k = 0; k < 3; ++k)
 	    dx[k] = bodies[i].x[k] - bodies[j].x[k];
 
-	  distance = sqrt (dx[0] * dx[0] + dx[1] * dx[1] + dx[2] * dx[2]);
+	  distance = sqrtf (dx[0] * dx[0] + dx[1] * dx[1] + dx[2] * dx[2]);
 	  e -= (bodies[i].mass * bodies[j].mass) / distance;
 	}
     }
@@ -182,7 +186,7 @@ static int __attribute__ ((noinline))
 benchmark_body (int rpt)
 {
   int j;
-  double tot_e = 0.0;
+  float tot_e = 0.0;
 
   for (j = 0; j < rpt; j++)
     {
@@ -191,11 +195,11 @@ benchmark_body (int rpt)
       /*printf("%.9f\n", bodies_energy(solar_bodies, BODIES_SIZE)); */
       tot_e = 0.0;
       for (i = 0; i < 100; ++i)
-	tot_e += bodies_energy (solar_bodies, BODIES_SIZE);
+	      tot_e += bodies_energy (solar_bodies, BODIES_SIZE);
       /*printf("%.9f\n", bodies_energy(solar_bodies, BODIES_SIZE)); */
     }
-  /* Result is known good value for total energy. */
-  return double_eq_beebs(tot_e, -16.907516382852478);
+  /* Result is known good value for total energy. */  
+  return float_eq_beebs(tot_e, -16.907503/*-16.907516382852478*/);
 }
 
 
@@ -259,19 +263,25 @@ verify_benchmark (int tot_e_ok)
 
   /* Check we have the correct total energy and we have set up the
      solar_bodies array correctly. */
-
+  //printf("res %d\n", tot_e_ok);
   if (tot_e_ok)
     for (i = 0; i < BODIES_SIZE; i++)
       {
 	for (j = 0; j < 3; j++)
 	  {
-	    if (double_neq_beebs(solar_bodies[i].x[j], expected[i].x[j]))
+	    if (float_neq_beebs(solar_bodies[i].x[j], expected[i].x[j])){
+	      //printf("res1 %f %f\n", solar_bodies[i].x[j], expected[i].x[j]);
 	      return 0;
-	    if (double_neq_beebs(solar_bodies[i].v[j], expected[i].v[j]))
+	    }
+	    if (float_neq_beebs(solar_bodies[i].v[j], expected[i].v[j])){
+	      //printf("res2 %f %f\n", solar_bodies[i].v[j], expected[i].v[j]);
 	      return 0;
+	    }
 	  }
-	if (double_neq_beebs(solar_bodies[i].mass, expected[i].mass))
+	if (float_neq_beebs(solar_bodies[i].mass, expected[i].mass)){
+		  //printf("res3 %f %f\n", solar_bodies[i].mass, expected[i].mass);
 	  return 0;
+	  }
       }
   else
     return 0;

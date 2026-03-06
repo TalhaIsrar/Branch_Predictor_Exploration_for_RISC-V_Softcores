@@ -58,7 +58,7 @@ module btb_read #(parameter N = 32)(
     // predictedTaken is 0 for strongNotTaken(00) && weakNotTaken(01)
     // predictedTaken is 1 for strongTaken(10) && weakTaken(11)
     // This is same as MSB of state
-    assign predictedTaken = current_state[1];
+    assign predictedTaken = 1'b1;
 
     // Calculate the next LRU value for current set
     assign next_LRU_read = check_branch2;

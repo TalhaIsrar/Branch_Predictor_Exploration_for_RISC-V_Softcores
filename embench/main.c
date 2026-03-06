@@ -268,6 +268,24 @@ swerv_printf(const char* format, ...)
   return code;
 }
 
+// Simple RV32IM-safe float print (3 decimal digits)
+void print_float(float f)
+{
+    if (f < 0) {
+        whisperPutc('-');
+        f = -f;
+    }
+
+    int int_part = (int)f;               // integer part
+    int frac_part = (int)((f - int_part) * 1000 + 0.5f); // 3 decimals
+
+    whisperPrintDecimal(int_part);
+    whisperPutc('.');
+    if (frac_part < 100) whisperPutc('0');
+    if (frac_part < 10)  whisperPutc('0');
+    whisperPrintDecimal(frac_part);
+}
+
 // Read the hardware cycle counter
 int barebones_clock()
 {

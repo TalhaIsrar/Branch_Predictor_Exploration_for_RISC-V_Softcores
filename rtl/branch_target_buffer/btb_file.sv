@@ -12,7 +12,7 @@ module btb_file #(parameter N = 32)(
 );
 
     (* ram_style = "block" *) logic [127:0] file1 [N-1:0]; 
-    (* ram_style = "block" *) logic [127:0] file2 [N-1:0];
+    (* ram_style = "block" *) logic [127:0] file2 [N-1:0]; 
 
     logic [127:0] read_set_temp, update_set_temp;
 

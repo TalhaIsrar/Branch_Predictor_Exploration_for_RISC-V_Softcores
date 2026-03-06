@@ -19,8 +19,8 @@ module bimodal_base #(
     localparam ENTRIES = (1 << BIMODAL_IDX);
 
     // 2-bit counters
-    logic [1:0] bimodel_table_read [ENTRIES-1:0];
-    logic [1:0] bimodel_table_update [ENTRIES-1:0];
+    (* ram_style = "block" *) logic [1:0] bimodel_table_read [ENTRIES-1:0];
+    (* ram_style = "block" *) logic [1:0] bimodel_table_update [ENTRIES-1:0];
 
     logic [1:0] pred_o_temp, update_o_temp;
     logic [1:0] update_o;

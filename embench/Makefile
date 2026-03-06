@@ -2,7 +2,7 @@
 BENCH ?= cubic
 
 # CPU frequency (for scaling)
-CPU_MHZ ?= 1
+CPU_MHZ ?= 2
 
 # Collect benchmark source files automatically
 BENCH_SRC := $(wildcard $(BENCH)/*.c)

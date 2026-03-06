@@ -29,6 +29,7 @@ verify_benchmark (int res __attribute ((unused)) )
 {
   static const float exp_res0[3] = {2.0, 6.0, 2.5};
   const float exp_res1 = 2.5;
+  
   return (3 == soln_cnt0)
     && float_eq_beebs(exp_res0[0], res0[0])
     && float_eq_beebs(exp_res0[1], res0[1])

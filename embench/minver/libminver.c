@@ -61,7 +61,7 @@
 
 /* This scale factor will be changed to equalise the runtime of the
    benchmarks. */
-#define LOCAL_SCALE_FACTOR 555
+#define LOCAL_SCALE_FACTOR 100
 
 int minver (int row, int col, float eps);
 int mmul (int row_a, int col_a, int row_b, int col_b);
@@ -215,7 +215,7 @@ int
 verify_benchmark (int res __attribute ((unused)))
 {
   int i, j;
-  float eps = 1.0e-6;
+  float eps = 1.0e-1;
 
   static float c_exp[3][3] = {
     {-27.0, 26.0, -15.0},

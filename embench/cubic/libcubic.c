@@ -29,8 +29,8 @@ SolveCubic (float a, float b, float c, float d, int *solutions, float *x)
   float a1 = (float) (b / a);
   float a2 = (float) (c / a);
   float a3 = (float) (d / a);
-  float Q = (a1 * a1 - 3.0L * a2) / 9.0L;
-  float R = (2.0L * a1 * a1 * a1 - 9.0L * a1 * a2 + 27.0L * a3) / 54.0L;
+  float Q = (a1 * a1 - 3.0f * a2) / 9.0f;
+  float R = (2.0f * a1 * a1 * a1 - 9.0f * a1 * a2 + 27.0f * a3) / 54.0f;
   float R2_Q3 = (float) (R * R - Q * Q * Q);
 
   float theta;
@@ -38,20 +38,18 @@ SolveCubic (float a, float b, float c, float d, int *solutions, float *x)
   if (R2_Q3 <= 0)
     {
       *solutions = 3;
-      theta = acosf (((float) R) / sqrtf ((float) (Q * Q * Q)));
-      x[0] = -2.0 * sqrtf ((float) Q) * cosf (theta / 3.0) - a1 / 3.0;
-      x[1] =
-	-2.0 * sqrtf ((float) Q) * cosf ((theta + 2.0 * PI) / 3.0) - a1 / 3.0;
-      x[2] =
-	-2.0 * sqrtf ((float) Q) * cosf ((theta + 4.0 * PI) / 3.0) - a1 / 3.0;
+      theta = acosf(R / sqrtf(Q * Q * Q));
+      x[0] = -2.0f * sqrtf(Q) * cosf(theta / 3.0f) - a1 / 3.0f;
+      x[1] = -2.0f * sqrtf(Q) * cosf((theta + 2.0f * PI) / 3.0f) - a1 / 3.0f;
+      x[2] = -2.0f * sqrtf(Q) * cosf((theta + 4.0f * PI) / 3.0f) - a1 / 3.0f;
     }
   else
     {
       *solutions = 1;
-      x[0] = powf (sqrtf (R2_Q3) + fabsf ((float) R), 1 / 3.0);
+      x[0] = powf(sqrtf(R2_Q3) + fabsf(R), 1.0f / 3.0f);
       x[0] += ((float) Q) / x[0];
-      x[0] *= (R < 0.0L) ? 1 : -1;
-      x[0] -= (float) (a1 / 3.0L);
+      x[0] *= (R < 0.0f) ? 1 : -1;
+      x[0] -= (float) (a1 / 3.0f);
     }
 }
 
