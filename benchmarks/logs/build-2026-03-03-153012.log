@@ -1,0 +1,976 @@
+Log file: /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/logs/build-2026-03-03-153012.log
+
+
+Supplied arguments
+==================
+--builddir            : bd
+--logdir              : logs
+--arch                : riscv32
+--chip                : generic
+--board               : simodense
+--cc                  : riscv32-unknown-elf-gcc
+--ld                  : riscv32-unknown-elf-gcc
+--cflags              : -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib
+--ldflags             : -T link.ld
+--env                 : None
+--cc-define1-pattern  : None
+--cc-define2-pattern  : None
+--cc-incdir-pattern   : None
+--cc-input-pattern    : None
+--cc-output-pattern   : None
+--ld-input-pattern    : None
+--ld-output-pattern   : None
+--user-libs           : None
+--dummy-libs          : dummy-crt0.c
+--cpu-mhz             : 50
+--warmup-heat         : None
+--verbose             : False
+--clean               : True
+--timeout             : 5
+
+Benchmarks
+==========
+aha-mont64
+crc32
+cubic
+edn
+huffbench
+matmult-int
+md5sum
+minver
+nbody
+nettle-aes
+nettle-sha256
+nsichneu
+picojpeg
+primecount
+qrduino
+sglib-combined
+slre
+st
+statemate
+tarfind
+ud
+wikisort
+
+Global parameters
+=================
+rootdir              : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks
+verbose              : False
+bd                   : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd
+configdir            : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config
+bd_configdir         : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/config
+archdir              : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32
+bd_archdir           : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/config/riscv32
+chipdir              : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic
+bd_chipdir           : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/config/riscv32/chips/generic
+boarddir             : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense
+bd_boarddir          : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/config/riscv32/boards/simodense
+env                  : {}
+benchdir             : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src
+bd_benchdir          : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src
+supportdir           : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support
+bd_supportdir        : /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/support
+cflags               : ['-march=rv32im', '-mabi=ilp32', '-O2', '-ffreestanding', '-nostdlib', '-I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support', '-I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense', '-I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic', '-I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32', '-DCPU_MHZ=50', '-DWARMUP_HEAT=1']
+ldflags              : ['-T', 'link.ld']
+cc                   : riscv32-unknown-elf-gcc
+cc_define1_pattern   : -D{0}
+cc_define2_pattern   : -D{0}={1}
+cc_incdir_pattern    : -I{0}
+cc_input_pattern     : {0}
+cc_output_pattern    : -o {0}
+ld_input_pattern     : {0}
+ld_output_pattern    : -o {0}
+user_libs            : {}
+dummy_libs           : ['dummy-crt0.c']
+cpu_mhz              : 50
+warmup_heat          : 1
+timeout              : 5
+ld                   : riscv32-unknown-elf-gcc
+
+General log
+===========
+Warning: Compilation of beebsc.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/support failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o beebsc.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support/beebsc.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc5wB9kR.o: in function `init_heap_beebs':
+beebsc.c:(.text+0x80): undefined reference to `__assert_func'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc5wB9kR.o: in function `calloc_beebs':
+beebsc.c:(.text+0x15c): undefined reference to `memset'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of main.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/support failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o main.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support/main.c
+
+/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support/main.c: In function 'main':
+/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support/main.c:91:3: error: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   91 |   printf("Initialised. Warming up %d %d\n", WARMUP_HEAT);
+      |   ^~~~~~
+/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support/main.c:15:1: note: 'printf' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+   14 | #include "support.h"
+  +++ |+#include <stdio.h>
+   15 | 
+
+Warning: Compilation of dummy-dummy-crt0.c.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/support failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o dummy-dummy-crt0.c.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support/dummy-dummy-crt0.c.c
+
+cc1: fatal error: /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support/dummy-dummy-crt0.c.c: No such file or directory
+compilation terminated.
+
+Warning: Compilation of boardsupport.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/config/riscv32/boards/simodense failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o boardsupport.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense/boardsupport.c
+
+/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense/boardsupport.c: In function 'start_trigger':
+/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense/boardsupport.c:765:3: error: type defaults to 'int' in type name [-Wimplicit-int]
+  765 |   start_time = (volatile) time__();
+      |   ^~~~~~~~~~
+/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense/boardsupport.c:766:3: error: type defaults to 'int' in type name [-Wimplicit-int]
+  766 |   start_insn = (volatile) insn();
+      |   ^~~~~~~~~~
+
+Compilation of benchmark "aha-mont64" successful
+Warning: Unable to find support library /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/support/main.o
+Warning: Link of benchmark "aha-mont64" failed
+
+riscv32-unknown-elf-gcc: fatal error: no input files
+compilation terminated.
+
+In directory "/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/aha-mont64"
+Command was:
+riscv32-unknown-elf-gcc -T link.ld -o aha-mont64
+Warning: Compilation of crc_32.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/crc32 to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/crc32 failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o crc_32.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/crc32/crc_32.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 00010094
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc1i23X0.o: in function `benchmark_body':
+crc_32.c:(.text+0x34): undefined reference to `srand_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: crc_32.c:(.text+0x44): undefined reference to `rand_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc1i23X0.o: in function `crc32pseudo':
+crc_32.c:(.text+0xc8): undefined reference to `rand_beebs'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of basicmath_small.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/cubic to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/cubic failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o basicmath_small.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/cubic/basicmath_small.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 00010094
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: basicmath_small.o has a LOAD segment with RWX permissions
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccYnSStr.o: in function `benchmark_body.isra.0':
+basicmath_small.c:(.text+0x84): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0xa8): undefined reference to `SolveCubic'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0xc4): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0xe4): undefined reference to `SolveCubic'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x114): undefined reference to `SolveCubic'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x138): undefined reference to `SolveCubic'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x180): undefined reference to `SolveCubic'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x190): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x1a8): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x1d8): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x1f8): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x298): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x2a0): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x2a8): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccYnSStr.o: in function `verify_benchmark':
+basicmath_small.c:(.text+0x2cc): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x2fc): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x304): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x30c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x31c): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x330): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x338): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x340): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x350): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x370): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x378): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x380): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: basicmath_small.c:(.text+0x390): undefined reference to `__ltdf2'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of libcubic.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/cubic to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/cubic failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o libcubic.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/cubic/libcubic.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 00010094
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccxZXWRz.o: in function `SolveCubic':
+libcubic.c:(.text+0x54): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x68): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x78): undefined reference to `__extendsftf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x88): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0xa8): undefined reference to `__extendsftf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0xf0): undefined reference to `__multf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x134): undefined reference to `__subtf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x17c): undefined reference to `__divtf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x1a8): undefined reference to `__trunctfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x1bc): undefined reference to `__extendsftf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x200): undefined reference to `__addtf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x244): undefined reference to `__multf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x288): undefined reference to `__multf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x2d0): undefined reference to `__multf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x314): undefined reference to `__multf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x358): undefined reference to `__subtf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x36c): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x388): undefined reference to `__extendsftf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x3d0): undefined reference to `__multf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x414): undefined reference to `__addtf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x45c): undefined reference to `__divtf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x488): undefined reference to `__trunctfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x49c): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x4a8): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x4bc): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x4c8): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x4d8): undefined reference to `__lesf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x4f4): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x504): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x518): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x524): undefined reference to `powf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x538): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x544): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x55c): undefined reference to `__ltsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x578): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x588): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x5dc): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x5ec): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x5f4): undefined reference to `acosf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x604): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x60c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x620): undefined reference to `__muldf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x638): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x640): undefined reference to `cosf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x650): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x660): undefined reference to `__divdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x674): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x684): undefined reference to `__muldf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x694): undefined reference to `__subdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x69c): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x6ac): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x6b4): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x6c4): undefined reference to `__muldf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x6d8): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x6f0): undefined reference to `atanf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x6fc): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x704): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x714): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x724): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x734): undefined reference to `__divdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x73c): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x744): undefined reference to `cosf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x74c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x75c): undefined reference to `__muldf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x76c): undefined reference to `__subdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x774): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x784): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x78c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x79c): undefined reference to `__muldf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x7b0): undefined reference to `atanf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x7bc): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x7c4): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x7d4): undefined reference to `__muldf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x7e4): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x7f4): undefined reference to `__divdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x7fc): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x804): undefined reference to `cosf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x80c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x81c): undefined reference to `__muldf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x82c): undefined reference to `__subdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libcubic.c:(.text+0x834): undefined reference to `__truncdfsf2'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of libedn.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/edn to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/edn failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o libedn.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/edn/libedn.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc2oYwoL.o: in function `verify_benchmark':
+libedn.c:(.text+0x820): undefined reference to `memcmp'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of libhuffbench.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/huffbench to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/huffbench failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o libhuffbench.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/huffbench/libhuffbench.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccpoRN36.o: in function `compdecomp':
+libhuffbench.c:(.text+0x118): undefined reference to `malloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libhuffbench.c:(.text+0x12c): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libhuffbench.c:(.text+0x154): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libhuffbench.c:(.text+0x168): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libhuffbench.c:(.text+0x188): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libhuffbench.c:(.text+0x19c): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccpoRN36.o:libhuffbench.c:(.text+0x1b0): more undefined references to `memset' follow
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccpoRN36.o: in function `compdecomp':
+libhuffbench.c:(.text+0x5f4): undefined reference to `free_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccpoRN36.o: in function `benchmark_body.isra.0':
+libhuffbench.c:(.text+0x70c): undefined reference to `init_heap_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libhuffbench.c:(.text+0x720): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccpoRN36.o: in function `verify_benchmark':
+libhuffbench.c:(.text+0x77c): undefined reference to `memcmp'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of matmult-int.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/matmult-int to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/matmult-int failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o matmult-int.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/matmult-int/matmult-int.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccOAGH1v.o: in function `benchmark_body.isra.0':
+matmult-int.c:(.text+0x120): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: matmult-int.c:(.text+0x134): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccOAGH1v.o: in function `verify_benchmark':
+matmult-int.c:(.text+0x2d0): undefined reference to `memcmp'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of md5.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/md5sum to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/md5sum failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o md5.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/md5sum/md5.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccpVsTba.o: in function `md5':
+md5.c:(.text+0xfc): undefined reference to `calloc'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: md5.c:(.text+0x110): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: md5.c:(.text+0x13c): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: md5.c:(.text+0x284): undefined reference to `free'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccpVsTba.o: in function `benchmark_body.constprop.0':
+md5.c:(.text+0x2fc): undefined reference to `init_heap_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: md5.c:(.text+0x308): undefined reference to `malloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: md5.c:(.text+0x338): undefined reference to `free_beebs'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of libminver.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/minver to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/minver failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o libminver.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/minver/libminver.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc2LBLlk.o: in function `minver.part.0':
+libminver.c:(.text+0xb4): undefined reference to `__gesf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0xd0): undefined reference to `__gtsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x110): undefined reference to `__gesf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x12c): undefined reference to `__gesf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x144): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x164): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x1a8): undefined reference to `__nesf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x1ec): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x1fc): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x240): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x268): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc2LBLlk.o: in function `benchmark_body.isra.0':
+libminver.c:(.text+0x488): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x4a8): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x4bc): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x4e8): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x4f4): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x508): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x514): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x528): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x534): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc2LBLlk.o: in function `mmul':
+libminver.c:(.text+0x630): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x640): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x6ec): undefined reference to `__lesf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc2LBLlk.o: in function `verify_benchmark':
+libminver.c:(.text+0x798): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x7a0): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x7a8): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x7b8): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x7d8): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x7e0): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x7e8): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x7f8): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x820): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x830): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x838): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x840): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x848): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libminver.c:(.text+0x858): undefined reference to `__ltdf2'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of nbody.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/nbody to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/nbody failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o nbody.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/nbody/nbody.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccfpJVzZ.o: in function `offset_momentum':
+nbody.c:(.text+0x6c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x84): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x8c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x9c): undefined reference to `__divdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0xb4): undefined reference to `__subdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0xbc): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccfpJVzZ.o: in function `bodies_energy':
+nbody.c:(.text+0x14c): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x160): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x170): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x184): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x194): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x1a4): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x1ac): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x1bc): undefined reference to `__muldf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x1cc): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x1d4): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x21c): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x230): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x244): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x258): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x26c): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x27c): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x290): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x2a0): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x2a8): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x2bc): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x2c8): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x2d8): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x2f8): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x30c): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x31c): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x330): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x340): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x354): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x35c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x36c): undefined reference to `__muldf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x380): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x398): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x3a0): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccfpJVzZ.o: in function `benchmark_body':
+nbody.c:(.text+0x498): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x4b0): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x4b8): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x4c8): undefined reference to `__divdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x4e0): undefined reference to `__subdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x4e8): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x51c): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x53c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x54c): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x554): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x58c): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x594): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x5a4): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccfpJVzZ.o: in function `verify_benchmark':
+nbody.c:(.text+0x62c): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x634): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x63c): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x64c): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x664): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x66c): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x674): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x684): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x6a0): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x6a8): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x6b0): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nbody.c:(.text+0x6c0): undefined reference to `__ltdf2'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of nettle-aes.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/nettle-aes to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/nettle-aes failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o nettle-aes.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/nettle-aes/nettle-aes.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccGT5XKK.o: in function `_aes_set_key':
+nettle-aes.c:(.text+0xbac): undefined reference to `exit'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccGT5XKK.o: in function `aes_set_encrypt_key':
+nettle-aes.c:(.text+0xc30): undefined reference to `exit'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccGT5XKK.o: in function `aes_set_decrypt_key':
+nettle-aes.c:(.text+0xf90): undefined reference to `exit'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nettle-aes.c:(.text+0xfb0): undefined reference to `exit'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nettle-aes.c:(.text+0xfd0): undefined reference to `exit'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccGT5XKK.o:nettle-aes.c:(.text+0x1010): more undefined references to `exit' follow
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of nettle-sha256.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/nettle-sha256 to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/nettle-sha256 failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o nettle-sha256.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/nettle-sha256/nettle-sha256.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccm2XrDJ.o: in function `sha256_init':
+nettle-sha256.c:(.text+0x1c): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccm2XrDJ.o: in function `sha256_update':
+nettle-sha256.c:(.text+0x1708): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nettle-sha256.c:(.text+0x17d0): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nettle-sha256.c:(.text+0x1810): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccm2XrDJ.o: in function `sha256_write_digest':
+nettle-sha256.c:(.text+0x1890): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nettle-sha256.c:(.text+0x194c): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nettle-sha256.c:(.text+0x197c): undefined reference to `exit'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccm2XrDJ.o: in function `sha256_digest':
+nettle-sha256.c:(.text+0x19a8): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccm2XrDJ.o: in function `benchmark_body.isra.0':
+nettle-sha256.c:(.text+0x1a1c): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nettle-sha256.c:(.text+0x1a30): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: nettle-sha256.c:(.text+0x1a7c): undefined reference to `memcpy'
+collect2: error: ld returned 1 exit status
+
+Compilation of benchmark "nsichneu" successful
+Warning: Unable to find support library /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/support/main.o
+Warning: Link of benchmark "nsichneu" failed
+
+riscv32-unknown-elf-gcc: fatal error: no input files
+compilation terminated.
+
+In directory "/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/nsichneu"
+Command was:
+riscv32-unknown-elf-gcc -T link.ld -o nsichneu
+Warning: Compilation of picojpeg_test.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/picojpeg to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/picojpeg failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o picojpeg_test.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/picojpeg/picojpeg_test.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccsI2vco.o: in function `pjpeg_need_bytes_callback':
+picojpeg_test.c:(.text+0x40): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccsI2vco.o: in function `benchmark_body.isra.0':
+picojpeg_test.c:(.text+0xc8): undefined reference to `pjpeg_decode_init'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: picojpeg_test.c:(.text+0xd0): undefined reference to `pjpeg_decode_mcu'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccsI2vco.o: in function `verify_benchmark':
+picojpeg_test.c:(.text+0x134): undefined reference to `memcmp'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: picojpeg_test.c:(.text+0x164): undefined reference to `memcmp'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: picojpeg_test.c:(.text+0x17c): undefined reference to `memcmp'
+collect2: error: ld returned 1 exit status
+
+Compilation of benchmark "primecount" successful
+Warning: Unable to find support library /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/support/main.o
+Warning: Link of benchmark "primecount" failed
+
+riscv32-unknown-elf-gcc: fatal error: no input files
+compilation terminated.
+
+In directory "/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/primecount"
+Command was:
+riscv32-unknown-elf-gcc -T link.ld -o primecount
+Warning: Compilation of qrencode.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/qrduino to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/qrduino failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o qrencode.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/qrduino/qrencode.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 00010094
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cchxl1tY.o: in function `badruns':
+qrencode.c:(.text+0x0): undefined reference to `rlens'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x4): undefined reference to `rlens'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cchxl1tY.o: in function `appendrs':
+qrencode.c:(.text+0x110): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x22c): undefined reference to `memmove'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cchxl1tY.o: in function `applymask':
+qrencode.c:(.text+0x260): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x264): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x27c): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x280): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x284): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x2d0): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x300): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x304): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x32c): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x35c): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x360): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x370): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x374): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x378): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x3a4): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x3d4): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x3d8): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x400): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x414): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x43c): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x440): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x454): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x458): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x45c): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x48c): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x4bc): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x4c0): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x4e8): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x4fc): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x534): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x538): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x548): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x54c): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x550): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x568): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x580): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x5bc): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x5ec): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x5f0): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x618): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x644): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x648): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x660): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x664): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x668): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x6b8): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x6e8): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x6ec): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x714): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x790): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x794): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x7a4): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x7a8): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x7ac): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x7c8): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x7f8): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x7fc): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x824): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x850): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x854): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x864): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x868): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x86c): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x88c): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x8bc): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x8dc): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x8e0): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x8f8): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x8fc): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x900): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x94c): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x97c): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x980): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x9a8): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x9d8): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xa50): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xa54): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xa84): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xac8): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cchxl1tY.o: in function `qrencode':
+qrencode.c:(.text+0xafc): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb00): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb34): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb38): undefined reference to `strlen'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb40): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb44): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb48): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb4c): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb50): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb58): undefined reference to `VERSION'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb60): undefined reference to `VERSION'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb7c): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xb94): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xbb4): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xbd0): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xbf0): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cchxl1tY.o:qrencode.c:(.text+0xbf8): more undefined references to `strinbuf' follow
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cchxl1tY.o: in function `qrencode':
+qrencode.c:(.text+0xc04): undefined reference to `VERSION'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xc1c): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xc20): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xc24): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xc28): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xc2c): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd20): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd24): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd2c): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd34): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd44): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd48): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd4c): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd60): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd68): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd74): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd88): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd8c): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xd90): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xda8): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xdb0): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xdc4): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xde0): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xde4): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xdec): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe00): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe24): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe28): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe2c): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe3c): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe48): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe4c): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe78): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe7c): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xe88): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xea4): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xec0): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xec4): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xec8): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xee4): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xee8): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xef0): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xef4): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xefc): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf00): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf04): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf08): undefined reference to `framebase'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf0c): undefined reference to `framebase'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf14): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf18): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf20): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf24): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf28): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf2c): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf34): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf60): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf6c): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf88): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xf8c): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xfb4): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0xfb8): undefined reference to `framask'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1024): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1028): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x102c): undefined reference to `datablkw'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1030): undefined reference to `eccblkwid'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1050): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1054): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1058): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1068): undefined reference to `rlens'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1070): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1094): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x109c): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x10a0): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1160): undefined reference to `rlens'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1168): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1190): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x11ac): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x11b0): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x11c8): undefined reference to `rlens'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1200): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1250): undefined reference to `rlens'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1258): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x128c): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x129c): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x12a0): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x12b0): undefined reference to `rlens'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x12e0): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1310): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1314): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1318): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1320): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1340): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1358): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x135c): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1360): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1370): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1394): undefined reference to `ECCLEVEL'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1398): undefined reference to `ECCLEVEL'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x13d4): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x13d8): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x13dc): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x140c): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1418): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1464): undefined reference to `WD'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1468): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x146c): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1494): undefined reference to `WDB'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1498): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x14d8): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x14f0): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1510): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x152c): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1548): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1554): undefined reference to `VERSION'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x156c): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x157c): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x15c0): undefined reference to `neccblk2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x17a0): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1800): undefined reference to `neccblk1'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x180c): undefined reference to `qrframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrencode.c:(.text+0x1814): undefined reference to `neccblk1'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of qrframe.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/qrduino to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/qrduino failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o qrframe.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/qrduino/qrframe.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccDMwPnr.o: in function `initframe':
+qrframe.c:(.text+0x300): undefined reference to `calloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrframe.c:(.text+0x334): undefined reference to `calloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrframe.c:(.text+0x348): undefined reference to `malloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrframe.c:(.text+0xf84): undefined reference to `free_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrframe.c:(.text+0xf90): undefined reference to `free_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrframe.c:(.text+0xfa4): undefined reference to `free_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccDMwPnr.o: in function `initecc':
+qrframe.c:(.text+0x1004): undefined reference to `malloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrframe.c:(.text+0x107c): undefined reference to `malloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccDMwPnr.o: in function `initeccsize':
+qrframe.c:(.text+0x113c): undefined reference to `free_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrframe.c:(.text+0x1150): undefined reference to `free_beebs'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of qrtest.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/qrduino to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/qrduino failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o qrtest.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/qrduino/qrtest.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccXdOBZS.o: in function `benchmark_body.isra.0':
+qrtest.c:(.text+0x4c): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0x64): undefined reference to `init_heap_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0x78): undefined reference to `initeccsize'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0x88): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0x8c): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0x94): undefined reference to `initframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0x9c): undefined reference to `qrencode'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0xa4): undefined reference to `freeframe'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0xac): undefined reference to `freeecc'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccXdOBZS.o: in function `verify_benchmark':
+qrtest.c:(.text+0x118): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0x130): undefined reference to `strinbuf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0x160): undefined reference to `memcmp'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: qrtest.c:(.text+0x188): undefined reference to `check_heap_beebs'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of combined.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/sglib-combined to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/sglib-combined failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o combined.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/sglib-combined/combined.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc1LcPC1.o: in function `benchmark_body':
+combined.c:(.text+0x1bf8): undefined reference to `memcpy'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: combined.c:(.text+0x1df4): undefined reference to `init_heap_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: combined.c:(.text+0x1e34): undefined reference to `malloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: combined.c:(.text+0x1f64): undefined reference to `malloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: combined.c:(.text+0x2168): undefined reference to `malloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/cc1LcPC1.o: in function `verify_benchmark':
+combined.c:(.text+0x2650): undefined reference to `check_heap_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: combined.c:(.text+0x2680): undefined reference to `memcmp'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of libslre.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/slre to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/slre failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o libslre.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/slre/libslre.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccBdZUWJ.o: in function `match_op':
+libslre.c:(.text+0x4c): undefined reference to `_ctype_'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libslre.c:(.text+0x50): undefined reference to `_ctype_'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libslre.c:(.text+0xb0): undefined reference to `_ctype_'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libslre.c:(.text+0xb4): undefined reference to `_ctype_'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libslre.c:(.text+0xe0): undefined reference to `_ctype_'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccBdZUWJ.o:libslre.c:(.text+0xe4): more undefined references to `_ctype_' follow
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccBdZUWJ.o: in function `slre_match':
+libslre.c:(.text+0xaf8): undefined reference to `memcmp'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libslre.c:(.text+0xb28): undefined reference to `strlen'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libslre.c:(.text+0xb58): undefined reference to `_ctype_'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libslre.c:(.text+0xb60): undefined reference to `_ctype_'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libslre.c:(.text+0xe18): undefined reference to `strchr'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccBdZUWJ.o: in function `benchmark_body':
+libslre.c:(.text+0xf54): undefined reference to `strlen'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of libst.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/st to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/st failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o libst.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/st/libst.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 00010094
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: libst.o has a LOAD segment with RWX permissions
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccX2fL9E.o: in function `Calc_Sum_Mean':
+libst.c:(.text+0x48): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x60): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccX2fL9E.o: in function `Square':
+libst.c:(.text+0x94): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccX2fL9E.o: in function `Calc_Var_Stddev':
+libst.c:(.text+0xec): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0xf8): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x108): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x11c): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x128): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccX2fL9E.o: in function `Calc_LinCorrCoef':
+libst.c:(.text+0x1b4): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x1cc): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x1e0): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x1f0): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x204): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x214): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x228): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x238): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x24c): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x25c): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x26c): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x27c): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccX2fL9E.o: in function `benchmark_body.isra.0':
+libst.c:(.text+0x378): undefined reference to `__floatsidf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x388): undefined reference to `__divdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x39c): undefined reference to `__floatsidf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x3b4): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x3bc): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x3ec): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x404): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x420): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x42c): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x43c): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x458): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x460): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x4b4): undefined reference to `__floatsidf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x4c4): undefined reference to `__divdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x4d8): undefined reference to `__floatsidf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x4f0): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x4f8): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x528): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x540): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x55c): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x568): undefined reference to `__mulsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x578): undefined reference to `__addsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x58c): undefined reference to `__divsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x594): undefined reference to `sqrtf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccX2fL9E.o: in function `Initialize':
+libst.c:(.text+0x6c4): undefined reference to `__floatsidf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x6d4): undefined reference to `__divdf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x6e8): undefined reference to `__floatsidf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x700): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x708): undefined reference to `__truncdfsf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccX2fL9E.o: in function `RandomInteger':
+libst.c:(.text+0x7c0): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x7c8): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x7d0): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x7e8): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccX2fL9E.o: in function `verify_benchmark':
+libst.c:(.text+0x814): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x81c): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x824): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x834): undefined reference to `__ltdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x848): undefined reference to `__subsf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x850): undefined reference to `fabsf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x858): undefined reference to `__extendsfdf2'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libst.c:(.text+0x868): undefined reference to `__ltdf2'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of libstatemate.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/statemate to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/statemate failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o libstatemate.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/statemate/libstatemate.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccLECKMn.o: in function `FH_DU':
+libstatemate.c:(.text+0x1074): undefined reference to `memset'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of tarfind.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/tarfind to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/tarfind failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o tarfind.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/tarfind/tarfind.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccz3zoys.o: in function `benchmark_body':
+tarfind.c:(.text+0x70): undefined reference to `init_heap_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: tarfind.c:(.text+0x80): undefined reference to `malloc_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: tarfind.c:(.text+0xb0): undefined reference to `memset'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: tarfind.c:(.text+0xc0): undefined reference to `rand_beebs'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: tarfind.c:(.text+0x16c): undefined reference to `free_beebs'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of libud.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/ud to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/ud failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o libud.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/ud/libud.c
+
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 000100b4
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccCoNajI.o: in function `verify_benchmark':
+libud.c:(.text+0x58): undefined reference to `memcmp'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: /tmp/ccCoNajI.o: in function `benchmark_body':
+libud.c:(.text+0x408): undefined reference to `__floatsidf'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libud.c:(.text+0x418): undefined reference to `__adddf3'
+/home/talha/riscv32i/lib/gcc/riscv32-unknown-elf/15.2.0/../../../../riscv32-unknown-elf/bin/ld: libud.c:(.text+0x420): undefined reference to `__fixdfsi'
+collect2: error: ld returned 1 exit status
+
+Warning: Compilation of libwikisort.c from source directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/wikisort to binary directory /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/bd/src/wikisort failed
+Command was:
+riscv32-unknown-elf-gcc -march=rv32im -mabi=ilp32 -O2 -ffreestanding -nostdlib -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/support -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/boards/simodense -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32/chips/generic -I/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/config/riscv32 -DCPU_MHZ=50 -DWARMUP_HEAT=1 -o libwikisort.o /home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/wikisort/libwikisort.c
+
+/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/wikisort/libwikisort.c:36:17: error: two or more data types in declaration specifiers
+   36 | typedef uint8_t bool;
+      |                 ^~~~
+/home/talha/Branch_Predictor_Exploration_for_RISC-V_Softcores/benchmarks/src/wikisort/libwikisort.c:36:1: warning: useless type name in empty declaration
+   36 | typedef uint8_t bool;
+      | ^~~~~~~
+

@@ -21,6 +21,7 @@ all:
 	@echo "  make riscv-tests"
 	@echo "  make dhrystone"
 	@echo "  make coremark"
+	@echo "  make embench_all"
 
 .PHONY: custom riscv-tests dhrystone coremark
 custom: del
@@ -41,12 +42,6 @@ dhrystone: del
 coremark: del
 	@echo "---------------- Starting Coremark Benchmark ----------------"
 	$(MAKE) -C coremark
-	$(MAKE) convert_mem
-
-.PHONY: embench
-embench: del
-	@echo "---------------- Starting EMbench: $(BENCH) ----------------"
-	$(MAKE) -C embench BENCH=$(BENCH)
 	$(MAKE) convert_mem
 
 aha-mont64:
@@ -97,11 +92,11 @@ depthconv:
 	$(MAKE) embench BENCH=depthconv
 xgboost:
 	$(MAKE) embench BENCH=xgboost
+
 EMBENCH_LIST := \
 	aha-mont64 crc32 cubic edn huffbench matmult-int md5sum minver \
 	nbody nettle-aes nettle-sha256 nsichneu picojpeg primecount qrduino \
 	sglib-combined slre st statemate tarfind ud wikisort depthconv xgboost
-
 OTHER_BENCH := coremark dhrystone
 
 # Convert .elf files to mem files

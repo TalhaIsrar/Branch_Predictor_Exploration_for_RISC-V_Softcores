@@ -1,4 +1,7 @@
-module ex_mem_pipeline(
+module ex_mem_pipeline #(
+    parameter N_TABLES = 2,
+    parameter GHR_SIZE = 128
+)(
     input logic clk,
     input logic rst,
     input logic pipeline_flush,
@@ -22,6 +25,12 @@ module ex_mem_pipeline(
     input logic [8:0] ex_decoded_instruction,
     input logic [31:0] ex_op1_selected,
 
+    input logic [N_TABLES-1:0] tag_hits_ex,
+    input logic [N_TABLES-1:0] u_bits_ex,
+    input logic [$clog2(N_TABLES)-1:0] provider_table_ex,
+    input logic [$clog2(N_TABLES)-1:0] alloc_table_ex,
+    input logic [GHR_SIZE-1:0] ghr_ex,
+
     output logic [31:0] mem_result,
     output logic [31:0] mem_op2_selected,
     output logic mem_memory_write,
@@ -38,7 +47,13 @@ module ex_mem_pipeline(
     output logic [2:0] mem_alu_flags,
     output logic mem_predictedTaken,
     output logic [8:0] mem_decoded_instruction,
-    output logic [31:0] mem_op1_selected
+    output logic [31:0] mem_op1_selected,
+
+    output logic [N_TABLES-1:0] tag_hits_mem,
+    output logic [N_TABLES-1:0] u_bits_mem,
+    output logic [$clog2(N_TABLES)-1:0] provider_table_mem,
+    output logic [$clog2(N_TABLES)-1:0] alloc_table_mem,
+    output logic [GHR_SIZE-1:0] ghr_mem 
 );
 
     always_ff @(posedge clk, posedge rst) begin
@@ -95,6 +110,28 @@ module ex_mem_pipeline(
             mem_predictedTaken <= ex_predictedTaken;
             mem_decoded_instruction <= ex_decoded_instruction;
             mem_op1_selected <= ex_op1_selected;
+        end
+    end
+
+    always_ff @(posedge clk, posedge rst) begin
+        if (rst) begin
+            tag_hits_mem <= 0;
+            u_bits_mem <= 0;
+            provider_table_mem <= 0;
+            alloc_table_mem <= 0;
+            ghr_mem <= 0;
+        end else if (pipeline_flush) begin
+            tag_hits_mem <= 0;
+            u_bits_mem <= 0;
+            provider_table_mem <= 0;
+            alloc_table_mem <= 0;
+            ghr_mem <= 0;
+        end else begin
+            tag_hits_mem <= tag_hits_ex;
+            u_bits_mem <= u_bits_ex;
+            provider_table_mem <= provider_table_ex;
+            alloc_table_mem <= alloc_table_ex;
+            ghr_mem <= ghr_ex;
         end
     end
 

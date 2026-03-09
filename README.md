@@ -17,7 +17,8 @@ branch_predictor_softcore_versions/     Different branch predictors with a RV32I
 custom_c_test/                          Test custom programs on the core
 riscv-tests/          
 dhrystone/          
-coremark/          
+coremark/     
+embench/     
 rtl/                                    RTL code for RISC-V Core to test
 Makefile
 test.py                                 Cocotb test file
@@ -47,6 +48,12 @@ To test the performance of the different branch predictors, a baseline risc-v co
 - [Alternating](branch_predictor_softcore_versions/rv32im_alternating_2xn/riscv_soc_top.sv)  
   This version has a 2-way set assosiative branch target buffer with Least Recently Used (LRU) replacement policy. It is used to store targets for previously seen jump/branch instruction and also stores last action it takes and alternates the action next time so if last time a specific branch instruction was taken, this time it is not taken.
 
+- [TAGE](branch_predictor_softcore_versions/rv32im_tage/riscv_soc_top.sv)  
+  This version has a parametric TAGE branch predictor with configurable number of tables, table size, tag size, GHR length used a BTB size. The tables are designed such that they utilize BRAM.
+
+- [TAGE-SC](branch_predictor_softcore_versions/rv32im_tage_sc/riscv_soc_top.sv)  
+  This version has a parametric TAGE-SC branch predictor with configurable number of tables, table size, tag size, GHR length used a BTB size. The tables are designed such that they utilize BRAM.
+
 ---
 
 ## 🔄 Usage
@@ -58,6 +65,7 @@ make custom
 make riscv-tests
 make dhrystone
 make coremark
+make embench-all
 ```
 
 ---
