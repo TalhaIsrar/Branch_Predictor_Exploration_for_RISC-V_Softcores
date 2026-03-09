@@ -65,7 +65,7 @@ make custom
 make riscv-tests
 make dhrystone
 make coremark
-make embench-all
+make embench_all
 ```
 
 ---
