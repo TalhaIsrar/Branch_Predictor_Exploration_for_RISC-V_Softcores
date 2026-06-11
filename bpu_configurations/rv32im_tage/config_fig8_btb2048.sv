@@ -114,14 +114,8 @@ module riscv_soc_top(
     parameter BTB_SIZE   = 2048;
     parameter BIMODAL_IDX = 12;
     parameter int TAGE_HIST_LEN [N_TABLES] = '{4, 8, 16, 32, 64, 128, 256};
-    parameter int TAGE_IDX_SIZE [N_TABLES] = '{11, 11, 11, 11, 11, 11, 11};
-    parameter int TAGE_TAG_SIZE [N_TABLES] = '{9, 9, 9, 9, 9, 9, 9};
-
-    parameter SC_N_TABLES = 3;
-    parameter SC_CTR_SIZE = 6;
-    parameter int SC_HIST_LEN [SC_N_TABLES] = '{4, 10, 16};
-    parameter int SC_IDX_SIZE [SC_N_TABLES] = '{9, 9, 9};
-    parameter int SC_THRES_INIT = 64;
+    parameter int TAGE_IDX_SIZE [N_TABLES] = '{12, 12, 11, 11, 10, 10, 9};
+    parameter int TAGE_TAG_SIZE [N_TABLES] = '{8, 8, 9, 9, 10, 10, 12};
 
     //localparam int MAX_IDX = 12; <- TAGE_IDX_SIZE should be less than this. If more is needed change this in tage.sv
     //localparam int MAX_TAG = 12; <- TAGE_TAG_SIZE should be less than this. If more is needed change this in tage.sv
@@ -155,12 +149,7 @@ module riscv_soc_top(
         .BIMODAL_IDX(BIMODAL_IDX),
         .TAGE_HIST_LEN(TAGE_HIST_LEN),
         .TAGE_IDX_SIZE(TAGE_IDX_SIZE),
-        .TAGE_TAG_SIZE(TAGE_TAG_SIZE),
-        .SC_N_TABLES(SC_N_TABLES),
-        .SC_CTR_SIZE(SC_CTR_SIZE),
-        .SC_HIST_LEN(SC_HIST_LEN),
-        .SC_IDX_SIZE(SC_IDX_SIZE),
-        .SC_THRES_INIT(SC_THRES_INIT)
+        .TAGE_TAG_SIZE(TAGE_TAG_SIZE)
     ) bpu_inst(
         .clk(clk),
         .rst(rst),

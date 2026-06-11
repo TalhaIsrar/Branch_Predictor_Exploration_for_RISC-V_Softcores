@@ -111,16 +111,16 @@ module riscv_soc_top(
     logic taken;
     parameter N_TABLES   = 7;
     parameter GHR_SIZE   = 512;
-    parameter BTB_SIZE   = 2048;
-    parameter BIMODAL_IDX = 12;
+    parameter BTB_SIZE   = 512;
+    parameter BIMODAL_IDX = 9;
     parameter int TAGE_HIST_LEN [N_TABLES] = '{4, 8, 16, 32, 64, 128, 256};
-    parameter int TAGE_IDX_SIZE [N_TABLES] = '{11, 11, 11, 11, 11, 11, 11};
-    parameter int TAGE_TAG_SIZE [N_TABLES] = '{9, 9, 9, 9, 9, 9, 9};
+    parameter int TAGE_IDX_SIZE [N_TABLES] = '{9, 9, 9, 9, 9, 9, 9};
+    parameter int TAGE_TAG_SIZE [N_TABLES] = '{8, 8, 9, 9, 10, 10, 12};
 
-    parameter SC_N_TABLES = 3;
+    parameter SC_N_TABLES = 4;
     parameter SC_CTR_SIZE = 6;
-    parameter int SC_HIST_LEN [SC_N_TABLES] = '{4, 10, 16};
-    parameter int SC_IDX_SIZE [SC_N_TABLES] = '{9, 9, 9};
+    parameter int SC_HIST_LEN [SC_N_TABLES] = '{0, 4, 10, 16};
+    parameter int SC_IDX_SIZE [SC_N_TABLES] = '{9, 9, 9, 9};
     parameter int SC_THRES_INIT = 64;
 
     //localparam int MAX_IDX = 12; <- TAGE_IDX_SIZE should be less than this. If more is needed change this in tage.sv

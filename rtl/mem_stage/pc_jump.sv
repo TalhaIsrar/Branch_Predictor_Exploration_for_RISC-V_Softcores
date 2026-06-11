@@ -13,7 +13,8 @@ module pc_jump(
     output logic [31:0] btb_update_target,
     output logic modify_pc,
     output logic btb_update,
-    output logic jump_inst
+    output logic jump_inst,
+    output logic taken
 );
     wire signed [31:0] input_a; 
     wire [31:0] adder_out;
@@ -51,6 +52,7 @@ module pc_jump(
                         (bltu &&  ltu_flag)  ||
                         (bgeu && ~ltu_flag) ;
 
+    assign taken = branch_taken || jump_inst;
 
     wire branch_mispredicted = branch_inst && ((branch_taken ^ predictedTaken) || (btb_update_target != predicted_pc));
     wire jump_mispredicted = jump_inst && (!predictedTaken || (btb_update_target != predicted_pc));
