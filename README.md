@@ -77,6 +77,7 @@ make embench_all
 * **Verilator** (Tested: `v5.042`)
 * **cocotb** (Tested: `2.0.1`)
 * Gtkwave (optional)
+* Vivado (Tested `2022.2`, `2025.1` for Area and Frequency estimates for FPGA)
 
 ---
 

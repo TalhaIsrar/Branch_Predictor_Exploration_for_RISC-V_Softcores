@@ -141,6 +141,11 @@ del:
 
 .PHONY: embench_all
 
+embench: del
+	@echo "---------------- Starting Embench: $(BENCH) ----------------"
+	$(MAKE) -C embench BENCH=$(BENCH)
+	$(MAKE) convert_mem
+
 embench_all:
 
 	@for bench in $(EMBENCH_LIST); do \
