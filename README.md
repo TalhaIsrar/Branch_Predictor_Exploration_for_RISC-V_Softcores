@@ -56,6 +56,17 @@ To test the performance of the different branch predictors, a baseline risc-v co
 
 ---
 
+## 💻 Prerequisites
+
+* Linux / WSL
+* **RISC-V GNU Toolchain** (Tested: `riscv32-unknown-elf-gcc 15.2.0`)
+* **Verilator** (Tested: `v5.042`)
+* **cocotb** (Tested: `2.0.1`)
+* Gtkwave (optional)
+* Vivado (Tested `2022.2`, `2025.1` for Area and Frequency estimates for FPGA)
+
+---
+
 ## 🔄 Usage (New)
 To run coremark or embench_iot the provided scripts can be used: 
 
@@ -64,6 +75,24 @@ To run coremark or embench_iot the provided scripts can be used:
 ./run_embench.sh <softcore_bpu_name> <configuration_name>
 ```
 The softcore_bpu name can be found as the folder names in bpu_configuration and the configuration_name is the name of the respective file within each subfolder. Make sure to activate the python enviornemnt discussed below before running the tests.
+
+## 🔄 Vivado Results
+To replicate the results in Vivado, the following steps must be followed:
+1. Generate the required code.hex file using the scripts available. The proper path of this code.hex file should be copied to rtl/fetch_stage/instruction_mem.sv (line 18) to ensure proper synthesis.
+2. Create a new project in Vivado. The Project Type should be RTL Project.
+3. In the Add Sources menu, click on Add Directories and select the rtl folder of a specific bpu (i.e rv32im_tage_sc)
+4. A minimal constraints file can be setup. The clock frequency depends on the set clock period and is different for each configuration. It can be modified by the following line:
+
+```bash
+create_clock -name sys_clk -period 5.4 [get_ports clk]
+```
+
+The value can to put in place of 5.4 depends on the design and exact configurations. For the best results for each type of bpu, the values are: Always Not Taken (5.128), Always Taken (5.263), Alternating (5.263), 1-Bit Saturating (5.263), 2-Bit Saturating (5.405), TAGE (5.405), TAGE-SC (6.06)
+
+5. Select the part number as: xczu3eg-sbva484-1-i
+6. Click on Finish to make the project
+7. Once the project is made, all settings are kept as Vivado Defaults for both synthesis and implementation.
+8. First run the synthesis using the Run synthesis button followed by implementation. All reported results are post-implementation.
 
 ## 🔄 Usage (Old)
 Copy the required version of the code from the branch_predictor_versions folder into the root directory of this repository and rename it to rtl.
@@ -76,18 +105,6 @@ make dhrystone
 make coremark
 make embench_all
 ```
-
----
-
-## 💻 Prerequisites
-
-* Linux / WSL
-* **RISC-V GNU Toolchain** (Tested: `riscv32-unknown-elf-gcc 15.2.0`)
-* **Verilator** (Tested: `v5.042`)
-* **cocotb** (Tested: `2.0.1`)
-* Gtkwave (optional)
-* Vivado (Tested `2022.2`, `2025.1` for Area and Frequency estimates for FPGA)
-
 ---
 
 ## 📦 Installation
