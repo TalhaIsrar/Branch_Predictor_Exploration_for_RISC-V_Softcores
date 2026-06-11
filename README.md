@@ -56,7 +56,16 @@ To test the performance of the different branch predictors, a baseline risc-v co
 
 ---
 
-## 🔄 Usage
+## 🔄 Usage (New)
+To run coremark or embench_iot the provided scripts can be used: 
+
+```bash
+./run_tests.sh <softcore_bpu_name> <configuration_name>
+./run_embench.sh <softcore_bpu_name> <configuration_name>
+```
+The softcore_bpu name can be found as the folder names in bpu_configuration and the configuration_name is the name of the respective file within each subfolder. Make sure to activate the python enviornemnt discussed below before running the tests.
+
+## 🔄 Usage (Old)
 Copy the required version of the code from the branch_predictor_versions folder into the root directory of this repository and rename it to rtl.
 To run any of the tests, after installing the pre-requisties, you can run the following commands:
 
