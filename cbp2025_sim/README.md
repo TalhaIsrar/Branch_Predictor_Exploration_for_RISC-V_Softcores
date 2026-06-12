@@ -1,10 +1,10 @@
-# CBP Branch Predictor Simulation Framework
+# Branch Predictor Simulation Framework based on CBP2025
 
 This repository extends the CBP2025 simulator with custom branch predictors and provides an automated workflow for compiling, running, and evaluating experiments on CBP traces.
 
 ---
 
-## Overview
+## 📋 Overview
 
 This project integrates custom branch predictors into the CBP2025 framework and automates:
 
@@ -15,7 +15,7 @@ This project integrates custom branch predictors into the CBP2025 framework and 
 
 ---
 
-## Repository Structure
+## 📁 Repository Structure
 
 ```
 cbp2025_sim/
@@ -27,7 +27,7 @@ cbp2025_sim/
 
 ---
 
-## Requirements
+## ⚙️ Requirements
 
 - Python >= 3.10 (tested on Python 3.12.3)
 - pandas (tested on 3.0.3)
@@ -38,7 +38,7 @@ Other versions of Python dependencies may work but are not guaranteed.
 
 ---
 
-## Setup
+## 🚀 Setup
 
 Run the setup script:
 
@@ -53,7 +53,7 @@ This will:
 
 ---
 
-## Trace Dataset
+## 💾 Trace Dataset
 
 The simulator requires traces placed inside the CBP2025 directory:
 
@@ -67,11 +67,11 @@ cbp2025/traces/
 └── infra/
 ```
 
-### Sample traces (quick test)
+### 🧪 Sample traces (quick test)
 
 The original CBP2025 framework includes sample traces for quick validation.
 
-### Full training traces
+### 📦 Full training traces
 
 Download using:
 
@@ -80,7 +80,7 @@ pip install gdown
 gdown --folder https://drive.google.com/drive/folders/10CL13RGDW3zn-Dx7L0ineRvl7EpRsZDW
 ```
 
-Extract the traces into the CBP2025 traces directory:
+Extract the traces into the CBP2025 traces directory using:
 
 ```bash
 tar -xf <trace-archive>.tar.xz -C cbp2025/traces/
@@ -88,32 +88,36 @@ tar -xf <trace-archive>.tar.xz -C cbp2025/traces/
 
 ---
 
-## Running Experiments
+## 🔬 Running Experiments
 
-### Quick test
+First, move into the CBP2025 framework directory:
+
+```bash
+cd cbp2025
+```
+
+Then run experiments.
+
+### ⚡ Quick test
 
 ```bash
 ./run.sh <predictor_name> sample_traces
 ```
 
-### Full evaluation
+### 🏁 Full evaluation
 
 ```bash
 ./run.sh <predictor_name> traces
 ```
 
----
-
-### Arguments
+### 📝 Arguments
 
 - `<predictor_name>`: name of a folder inside `predictors/`
 - `<trace_dir>`: either `sample_traces` or `traces`
 
-Predictor selection is based on folder names inside `predictors/`.
-
 ---
 
-## Output
+## 📈 Output
 
 Results are stored in:
 
@@ -128,7 +132,7 @@ Each run generates:
 
 ---
 
-## Notes
+## 💡 Notes
 
 - Ensure `prepare.sh` is executed before running experiments
 - Trace directory names must match exactly (`sample_traces` or `traces`)
@@ -137,6 +141,6 @@ Each run generates:
 
 ---
 
-## License
+## 📜 License
 
 This repository builds on the CBP2025 framework. The original framework license applies. Custom additions are provided for research and reproducibility purposes.
