@@ -1,6 +1,7 @@
 #!/bin/bash
 
 VARIANT=$1
+TRACE_DIR=${2:-sample_traces}
 
 if [ -z "$VARIANT" ]; then
     echo "Usage: $0 <folder-name>"
@@ -21,6 +22,6 @@ cp "$CODE_DIR"/*.h .
 make clean && make
 
 # Run experiment
-python scripts/trace_exec_training_list.py \
-    --trace_dir cbp_traces/ \
+python3 scripts/trace_exec_training_list.py \
+    --trace_dir "$TRACE_DIR" \
     --results_dir "$RESULT_DIR"
